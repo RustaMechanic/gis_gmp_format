@@ -41,7 +41,6 @@
 						<xsd:enumeration value="24"/>
 						<xsd:enumeration value="25"/>
 						<xsd:enumeration value="26"/>
-						<xsd:enumeration value="0"/>
 					</xsd:restriction>
 				</xsd:simpleType>
 			</xsd:element>
@@ -105,10 +104,10 @@
 					<xsd:documentation>Показатель номера документа - реквизит 108 Распоряжения</xsd:documentation>
 				</xsd:annotation>
 				<xsd:simpleType>
-					<xsd:restriction base="xsd:token">
-						<xsd:maxLength value="25"/>
+					<xsd:restriction base="xsd:string">
+						<xsd:maxLength value="15"/>
 						<xsd:minLength value="1"/>
-						<xsd:whiteSpace value="collapse"/>
+						<xsd:whiteSpace value="preserve"/>
 					</xsd:restriction>
 				</xsd:simpleType>
 			</xsd:element>

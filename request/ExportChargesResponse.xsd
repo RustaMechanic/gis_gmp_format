@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by TeaM DJiNN (TeaM DJiNN) -->
 <xsd:schema xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:pcrs="http://roskazna.ru/gisgmp/xsd/116/PGU_ChargesResponse"

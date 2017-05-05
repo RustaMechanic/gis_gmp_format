@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSpy v2007 (http://www.altova.com) by BorYV (EMBRACE) -->
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:ns1="http://roskazna.ru/gisgmp/xsd/116/ErrInfo"
 	targetNamespace="http://roskazna.ru/gisgmp/xsd/116/ErrInfo" elementFormDefault="qualified"

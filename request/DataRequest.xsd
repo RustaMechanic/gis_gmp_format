@@ -1,8 +1,23 @@
-<xsd:schema targetNamespace="http://roskazna.ru/gisgmp/xsd/116/PGU_DataRequest" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pdr="http://roskazna.ru/gisgmp/xsd/116/PGU_DataRequest" xmlns:com="http://roskazna.ru/gisgmp/xsd/116/Common">
-	<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
-	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/Common" schemaLocation="../entity/directory/Common.xsd"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:pdr="http://roskazna.ru/gisgmp/xsd/116/PGU_DataRequest"
+	xmlns:com="http://roskazna.ru/gisgmp/xsd/116/Common"
+	targetNamespace="http://roskazna.ru/gisgmp/xsd/116/PGU_DataRequest"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#"
+		schemaLocation="xmldsig-core-schema.xsd"/>
+	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/Common"
+		schemaLocation="../entity/directory/Common.xsd"/>
 	<xsd:complexType name="DataRequest">
 		<xsd:sequence>
+			<xsd:element name="EsiaUserInfo" minOccurs="0" type="com:EsiaUserInfoType">
+				<xsd:annotation>
+					<xsd:documentation>Данные, подтверждающие аутентификацию плательщика в ЕСИА.
+Данный блок обязателен для заполнения для получения начислений, АН/ГАН которых является ФНС России. 
+В случае отсутствия данного блока в запросе на экспорт начислений будут возвращены начисления,удовлетворяющие параметрам поиска, за исключением начислений, администрируемых налоговыми органами.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
 			<xsd:element name="Filter">
 				<xsd:annotation>
 					<xsd:documentation>Фильтр для получения сущностей ГИС ГМП</xsd:documentation>
@@ -30,9 +45,7 @@
 												<xsd:documentation>УИН</xsd:documentation>
 												</xsd:annotation>
 												<xsd:simpleType>
-												<xsd:restriction base="xsd:token">
-												<xsd:minLength value="1"/>
-												<xsd:maxLength value="25"/>
+												<xsd:restriction base="xsd:string">
 												<xsd:pattern value="\c{20}"/>
 												<xsd:pattern value="\c{25}"/>
 												</xsd:restriction>
@@ -47,10 +60,28 @@
 											</xsd:annotation>
 											<xsd:complexType>
 												<xsd:sequence>
-												<xsd:element ref="com:PayerIdentifier" maxOccurs="100">
+												<xsd:element ref="com:PayerIdentifier"
+												maxOccurs="100">
 												<xsd:annotation>
 												<xsd:documentation>Идентификатор плательщика</xsd:documentation>
 												</xsd:annotation>
+												</xsd:element>
+												</xsd:sequence>
+											</xsd:complexType>
+										</xsd:element>
+										<xsd:element name="PaymentsIdentifiers">
+											<xsd:annotation>
+												<xsd:documentation>Список УИП, по которым запрашиваются сущности (платежи, квитанции)</xsd:documentation>
+											</xsd:annotation>
+											<xsd:complexType>
+												<xsd:sequence>
+												<xsd:element maxOccurs="100"
+												name="SystemIdentifier">
+												<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+												<xsd:pattern value="\w{32}"/>
+												</xsd:restriction>
+												</xsd:simpleType>
 												</xsd:element>
 												</xsd:sequence>
 											</xsd:complexType>
@@ -61,12 +92,14 @@
 											<xsd:documentation>Временной интервал, за который запрашиваются сущности</xsd:documentation>
 										</xsd:annotation>
 										<xsd:complexType>
-											<xsd:attribute name="startDate" type="xsd:dateTime" use="required">
+											<xsd:attribute name="startDate" type="xsd:dateTime"
+												use="required">
 												<xsd:annotation>
 												<xsd:documentation>Начальная дата временного интервала запроса</xsd:documentation>
 												</xsd:annotation>
 											</xsd:attribute>
-											<xsd:attribute name="endDate" type="xsd:dateTime" use="required">
+											<xsd:attribute name="endDate" type="xsd:dateTime"
+												use="required">
 												<xsd:annotation>
 												<xsd:documentation>Конечная дата временного интервала запроса</xsd:documentation>
 												</xsd:annotation>
@@ -93,7 +126,8 @@
 												<xsd:documentation>Идентификация получателя средств</xsd:documentation>
 												</xsd:annotation>
 												<xsd:complexType>
-												<xsd:attribute name="inn" type="com:INNType" use="required">
+												<xsd:attribute name="inn" type="com:INNType"
+												use="required">
 												<xsd:annotation>
 												<xsd:documentation>ИНН получателя средств, указанный в возвращаемой сущности</xsd:documentation>
 												</xsd:annotation>
@@ -112,7 +146,6 @@
 												<xsd:simpleType>
 												<xsd:restriction base="xsd:string">
 												<xsd:minLength value="6"/>
-												<xsd:whiteSpace value="collapse"/>
 												<xsd:maxLength value="32"/>
 												</xsd:restriction>
 												</xsd:simpleType>
@@ -126,7 +159,8 @@
 										</xsd:annotation>
 										<xsd:complexType>
 											<xsd:sequence>
-												<xsd:element name="KBK" type="com:KBKType" maxOccurs="100"/>
+												<xsd:element name="KBK" type="com:KBKType"
+												maxOccurs="100"/>
 											</xsd:sequence>
 										</xsd:complexType>
 									</xsd:element>
@@ -136,7 +170,8 @@
 										</xsd:annotation>
 										<xsd:complexType>
 											<xsd:sequence>
-												<xsd:element name="OKTMO" type="com:OKTMOType" maxOccurs="100"/>
+												<xsd:element name="OKTMO" type="com:OKTMOType"
+												maxOccurs="100"/>
 											</xsd:sequence>
 										</xsd:complexType>
 									</xsd:element>

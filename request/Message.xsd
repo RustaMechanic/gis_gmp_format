@@ -1,7 +1,16 @@
-<xs:schema targetNamespace="http://roskazna.ru/gisgmp/xsd/116/Message" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:msgd="http://roskazna.ru/gisgmp/xsd/116/MessageData" xmlns:gisgmp="http://roskazna.ru/gisgmp/xsd/116/Message" xmlns:com="http://roskazna.ru/gisgmp/xsd/116/Common">
-	<xs:import namespace="http://roskazna.ru/gisgmp/xsd/116/MessageData" schemaLocation="MessageData.xsd"/>
-	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
-    <xs:import namespace="http://roskazna.ru/gisgmp/xsd/116/Common" schemaLocation="../entity/directory/Common.xsd"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:msgd="http://roskazna.ru/gisgmp/xsd/116/MessageData"
+	xmlns:gisgmp="http://roskazna.ru/gisgmp/xsd/116/Message"
+	xmlns:com="http://roskazna.ru/gisgmp/xsd/116/Common"
+	targetNamespace="http://roskazna.ru/gisgmp/xsd/116/Message" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xs:import namespace="http://roskazna.ru/gisgmp/xsd/116/MessageData"
+		schemaLocation="MessageData.xsd"/>
+	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#"
+		schemaLocation="xmldsig-core-schema.xsd"/>
+    <xs:import namespace="http://roskazna.ru/gisgmp/xsd/116/Common" 
+        schemaLocation="../entity/directory/Common.xsd"/>
 	<xs:element name="RequestMessage" type="gisgmp:RequestMessageType">
 		<xs:annotation>
 			<xs:documentation>Запрос к ГИС ГМП</xs:documentation>
@@ -36,7 +45,7 @@
 				<xs:documentation>Дата и время формирования сообщения</xs:documentation>
 			</xs:annotation>
 		</xs:attribute>
-		<xs:attribute name="senderIdentifier" use="required" type="com:URNType">
+		<xs:attribute name="senderIdentifier" use="required"  type="com:URNType">
 			<xs:annotation>
 				<xs:documentation>УРН участника-отправителя сообщения</xs:documentation>
 			</xs:annotation>

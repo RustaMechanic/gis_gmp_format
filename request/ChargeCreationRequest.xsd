@@ -1,8 +1,20 @@
-<xsd:schema targetNamespace="http://roskazna.ru/gisgmp/xsd/116/ChargeCreationRequest" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:bdi="http://roskazna.ru/gisgmp/xsd/116/BudgetIndex" xmlns:com="http://roskazna.ru/gisgmp/xsd/116/Common" xmlns:org="http://roskazna.ru/gisgmp/xsd/116/Organization" xmlns:ccr="http://roskazna.ru/gisgmp/xsd/116/ChargeCreationRequest" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
-	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/Common" schemaLocation="../entity/directory/Common.xsd"/>
-	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/BudgetIndex" schemaLocation="../entity/directory/BudgetIndex.xsd"/>
-	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/Organization" schemaLocation="../entity/directory/Organization.xsd"/>
-	<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:bdi="http://roskazna.ru/gisgmp/xsd/116/BudgetIndex"
+	xmlns:com="http://roskazna.ru/gisgmp/xsd/116/Common"
+	xmlns:org="http://roskazna.ru/gisgmp/xsd/116/Organization"
+	xmlns:ccr="http://roskazna.ru/gisgmp/xsd/116/ChargeCreationRequest"
+	xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	targetNamespace="http://roskazna.ru/gisgmp/xsd/116/ChargeCreationRequest"
+	elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/Common"
+		schemaLocation="../entity/directory/Common.xsd"/>
+	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/BudgetIndex"
+		schemaLocation="../entity/directory/BudgetIndex.xsd"/>
+	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/Organization"
+		schemaLocation="../entity/directory/Organization.xsd"/>
+	<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#"
+		schemaLocation="xmldsig-core-schema.xsd"/>
 	<xsd:complexType name="ChargeCreationRequestType">
 		<xsd:annotation>
 			<xsd:documentation>Запрос создания предварительного начисления</xsd:documentation>
@@ -110,7 +122,8 @@
 					</xsd:annotation>
 					<xsd:simpleType>
 						<xsd:restriction base="xsd:string">
-							<xsd:pattern value="((0[1-9])|(1[0-5])|(2[12456]))[0-9a-zA-Zа-яА-Я]{23}"/>
+							<xsd:pattern value="((0[1-9])|(1[0-5])|(2[12456]))[0-9a-zA-Zа-яА-Я]{23}"
+							/>
 						</xsd:restriction>
 					</xsd:simpleType>
 				</xsd:element>

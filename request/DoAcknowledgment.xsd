@@ -1,4 +1,5 @@
-<!-- edited with XMLSpy v2011 rel. 2 (http://www.altova.com) by TeaM DJiNN (TeaM DJiNN) --><xs:schema targetNamespace="http://roskazna.ru/gisgmp/xsd/116/DoAcknowledgment" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:da="http://roskazna.ru/gisgmp/xsd/116/DoAcknowledgment" xmlns:qt="http://roskazna.ru/gisgmp/xsd/116/Quittance" xmlns:com="http://roskazna.ru/gisgmp/xsd/116/Common" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:da="http://roskazna.ru/gisgmp/xsd/116/DoAcknowledgment" xmlns:qt="http://roskazna.ru/gisgmp/xsd/116/Quittance" xmlns:com="http://roskazna.ru/gisgmp/xsd/116/Common" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" targetNamespace="http://roskazna.ru/gisgmp/xsd/116/DoAcknowledgment" elementFormDefault="qualified">
 	<xs:import namespace="http://roskazna.ru/gisgmp/xsd/116/Quittance" schemaLocation="../entity/document/Quittance.xsd"/>
 	<xs:import namespace="http://roskazna.ru/gisgmp/xsd/116/Common" schemaLocation="../entity/directory/Common.xsd"/>
 	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
@@ -93,10 +94,9 @@
 		<xs:simpleType>
 			<xs:union>
 				<xs:simpleType>
-					<xs:restriction base="xs:token">
+					<xs:restriction base="xs:string">
 						<xs:minLength value="1"/>
 						<xs:maxLength value="36"/>
-						<xs:whiteSpace value="collapse"/>
 					</xs:restriction>
 				</xs:simpleType>
 				<xs:simpleType>

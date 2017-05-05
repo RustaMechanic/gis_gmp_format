@@ -1,5 +1,12 @@
-<xs:schema targetNamespace="http://smev.gosuslugi.ru/rev120315" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.5.3" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:smev="http://smev.gosuslugi.ru/rev120315" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:gisgmp="http://roskazna.ru/gisgmp/xsd/116/Message">
-	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:smev="http://smev.gosuslugi.ru/rev120315" xmlns:ds="http://www.w3.org/2000/09/xmldsig#"
+	xmlns:xop="http://www.w3.org/2004/08/xop/include"
+	targetNamespace="http://smev.gosuslugi.ru/rev120315" elementFormDefault="qualified"
+	attributeFormDefault="unqualified" version="2.5.3"
+	xmlns:gisgmp="http://roskazna.ru/gisgmp/xsd/116/Message">
+	<xs:import namespace="http://www.w3.org/2000/09/xmldsig#"
+		schemaLocation="xmldsig-core-schema.xsd"/>
 	<xs:import namespace="http://www.w3.org/2004/08/xop/include" schemaLocation="xop-include.xsd"/>
 	<xs:import namespace="http://roskazna.ru/gisgmp/xsd/116/Message" schemaLocation="Message.xsd"/>
 	<xs:element name="Header" type="smev:HeaderType">
@@ -255,14 +262,8 @@
 	</xs:complexType>
 	<xs:complexType name="AppDataType">
 		<xs:sequence>
-			<xs:choice>
-				<xs:element ref="gisgmp:RequestMessage"/>
-				<xs:element ref="gisgmp:ResponseMessage"/>
-			</xs:choice>
+			<xs:any maxOccurs="unbounded" minOccurs="0" namespace="##any" processContents="lax"/>
 		</xs:sequence>
-		<!--  <xs:sequence>
-			<xs:any namespace="##any" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
-		</xs:sequence> -->
 		<xs:anyAttribute namespace="##any" processContents="lax"/>
 	</xs:complexType>
 	<xs:complexType name="AppDocumentType">

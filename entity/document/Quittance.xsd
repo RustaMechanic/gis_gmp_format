@@ -1,6 +1,14 @@
-<xsd:schema targetNamespace="http://roskazna.ru/gisgmp/xsd/116/Quittance" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:qt="http://roskazna.ru/gisgmp/xsd/116/Quittance" xmlns:com="http://roskazna.ru/gisgmp/xsd/116/Common" xmlns:pi="http://roskazna.ru/gisgmp/xsd/116/PaymentInfo">
-	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/PaymentInfo" schemaLocation="Payment.xsd"/>
-	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/Common" schemaLocation="../directory/Common.xsd"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:qt="http://roskazna.ru/gisgmp/xsd/116/Quittance"
+	xmlns:com="http://roskazna.ru/gisgmp/xsd/116/Common"
+	xmlns:pi="http://roskazna.ru/gisgmp/xsd/116/PaymentInfo"
+	targetNamespace="http://roskazna.ru/gisgmp/xsd/116/Quittance" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/PaymentInfo"
+		schemaLocation="Payment.xsd"/>
+	<xsd:import namespace="http://roskazna.ru/gisgmp/xsd/116/Common"
+		schemaLocation="../directory/Common.xsd"/>
 	<xsd:complexType name="QuittanceType">
 		<xsd:annotation>
 			<xsd:documentation>Квитанция</xsd:documentation>
@@ -58,10 +66,19 @@
 					<xsd:documentation>ИНН получателя средств из платежа. Присутствует в квитанции в случае несовпадения значения этого реквизита в платеже и начислении.</xsd:documentation>
 				</xsd:annotation>
 			</xsd:element>
-			<xsd:element name="payeeKPP" type="com:KPPType" minOccurs="0">
+			<xsd:element name="payeeKPP" minOccurs="0">
 				<xsd:annotation>
 					<xsd:documentation>КПП получателя средств из платежа. Присутствует в квитанции в случае несовпадения значения этого реквизита в платеже и начислении.</xsd:documentation>
 				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:union memberTypes="com:KPPType">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:string">
+								<xsd:pattern value="0"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:union>
+				</xsd:simpleType>
 			</xsd:element>
 			<xsd:element name="KBK" type="com:KBKResponseType" minOccurs="0">
 				<xsd:annotation>

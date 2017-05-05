@@ -1,4 +1,5 @@
-<xsd:schema targetNamespace="http://uri.etsi.org/01903/v1.1.1#" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://uri.etsi.org/01903/v1.1.1#" xmlns:ds="http://www.w3.org/2000/09/xmldsig#">
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://uri.etsi.org/01903/v1.1.1#" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" targetNamespace="http://uri.etsi.org/01903/v1.1.1#" elementFormDefault="qualified">
 	<xsd:import namespace="http://www.w3.org/2000/09/xmldsig#" schemaLocation="xmldsig-core-schema.xsd"/>
 <!-- Start auxiliary types definitions: AnyType, ObjectIdentifierType, EncapsulatedPKIDataType and TimestampType-->
 	<!-- Start AnyType -->
